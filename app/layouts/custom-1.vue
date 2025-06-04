@@ -7,78 +7,44 @@ const open = ref(false)
 const links = [[{
   label: 'Home',
   icon: 'i-lucide-house',
-  to: '/kasir',
+  to: '/o-master',
   onSelect: () => {
     open.value = false
   }
 }, {
-  label: 'Safety Stok',
-  icon: 'i-lucide-boxes',
-  to: '/kasir/safety-stok',
-  badge: '4',
-  onSelect: () => {
-    open.value = false
-  }
-}, {
-  label: 'Transfer Stok',
-  icon: 'i-lucide-hand-coins',
-  to: '/kasir/transfer-stok',
-  onSelect: () => {
-    open.value = false
-  }
-}, {
-    label: 'Transaksi',
-    to: '/kasir/transaksi',
-    icon: 'i-lucide-shopping-cart',
+    label: 'Kelola Akun',
+    to: '/o-master/kelola-akun',
+    icon: 'i-lucide-user-plus',
     defaultOpen: true,
     children: [{
-      label: 'Transaksi Baru',
-      to: '/kasir/transaksi',
+      label: 'Buat Akun',
+      to: '/o-master/kelola-akun',
       exact: true,
       onSelect: () => {
         open.value = false
       }
     }, {
       label: 'Riwayat',
-      to: '/kasir/transaksi/riwayat',
+      to: '/o-master/kelola-akun/riwayat',
       onSelect: () => {
         open.value = false
       }
   }]
 }, {
-  label: 'Pengiriman',
-  to: '/kasir/pengiriman',
-  icon: 'i-lucide-car-front',
+  label: 'Kelola Barang',
+  to: '/o-master/kelola-barang',
+  icon: 'i-lucide-list-plus',
   defaultOpen: true,
   children: [{
-    label: 'Pengiriman Baru',
-    to: '/kasir/pengiriman',
+    label: 'Kelola Barang',
+    to: '/o-master/kelola-barang',
     exact: true,
     onSelect: () => {
       open.value = false
     }
   }, {
     label: 'Riwayat',
-    to: '/kasir/pengiriman/riwayat',
-    onSelect: () => {
-      open.value = false
-    }
-  }]
-}, {
-  label: 'Kas',
-  to: '/kasir/kas',
-  icon: 'i-lucide-book-open',
-  defaultOpen: true,
-  children: [{
-    label: 'Kas',
-    to: '/kasir/kas',
-    exact: true,
-    onSelect: () => {
-      open.value = false
-    }
-  }, {
-    label: 'Riwayat',
-    to: '/kasir/kas/riwayat',
+    to: '/o-master/kelola-barang/riwayat',
     onSelect: () => {
       open.value = false
     }

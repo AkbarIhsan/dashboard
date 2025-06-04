@@ -10,13 +10,7 @@ const props = defineProps<{
 
 const UBadge = resolveComponent('UBadge')
 
-const sampleEmails = [
-  'james.anderson@example.com',
-  'mia.white@example.com',
-  'william.brown@example.com',
-  'emma.davis@example.com',
-  'ethan.harris@example.com'
-]
+const itemNames = ['besi', 'cat']
 
 const { data } = await useAsyncData('sales', async () => {
   const sales: Sale[] = []
@@ -29,8 +23,8 @@ const { data } = await useAsyncData('sales', async () => {
     sales.push({
       id: (4600 - i).toString(),
       date: date.toISOString(),
-      status: randomFrom(['paid', 'failed', 'refunded']),
-      email: randomFrom(sampleEmails),
+      item: randomFrom(itemNames),
+      quantity: randomInt(1, 20),
       amount: randomInt(100, 1000)
     })
   }
@@ -43,55 +37,17 @@ const { data } = await useAsyncData('sales', async () => {
 
 const columns: TableColumn<Sale>[] = [
   {
-    accessorKey: 'id',
-    header: 'ID',
-    cell: ({ row }) => `#${row.getValue('id')}`
+    accessorKey: 'no',
+    header: 'No',
+    cell: ({ row }) => `${row.index + 1}`
   },
   {
-    accessorKey: 'date',
-    header: 'Date',
-    cell: ({ row }) => {
-      return new Date(row.getValue('date')).toLocaleString('en-US', {
-        day: 'numeric',
-        month: 'short',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false
-      })
-    }
+    accessorKey: 'item',
+    header: 'Item'
   },
   {
-    accessorKey: 'status',
-    header: 'Status',
-    cell: ({ row }) => {
-      const color = {
-        paid: 'success' as const,
-        failed: 'error' as const,
-        refunded: 'neutral' as const
-      }[row.getValue('status') as string]
-
-      return h(UBadge, { class: 'capitalize', variant: 'subtle', color }, () =>
-        row.getValue('status')
-      )
-    }
-  },
-  {
-    accessorKey: 'email',
-    header: 'Email'
-  },
-  {
-    accessorKey: 'amount',
-    header: () => h('div', { class: 'text-right' }, 'Amount'),
-    cell: ({ row }) => {
-      const amount = Number.parseFloat(row.getValue('amount'))
-
-      const formatted = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'EUR'
-      }).format(amount)
-
-      return h('div', { class: 'text-right font-medium' }, formatted)
-    }
+    accessorKey: 'quantity',
+    header: 'Jumlah Barang'
   }
 ]
 </script>
