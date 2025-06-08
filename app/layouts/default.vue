@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { NavigationMenuItem } from '@nuxt/ui'
+
 const route = useRoute()
 const toast = useToast()
 
@@ -50,6 +52,7 @@ const links = [[{
   to: '/kasir/pengiriman',
   icon: 'i-lucide-car-front',
   defaultOpen: true,
+  type: 'trigger',
   children: [{
     label: 'Pengiriman Baru',
     to: '/kasir/pengiriman',
@@ -148,12 +151,15 @@ onMounted(async () => {
           :collapsed="collapsed"
           :items="links[0]"
           orientation="vertical"
+          tooltip
+          popover
         />
 
         <UNavigationMenu
           :collapsed="collapsed"
           :items="links[1]"
           orientation="vertical"
+          tooltip
           class="mt-auto"
         />
       </template>
