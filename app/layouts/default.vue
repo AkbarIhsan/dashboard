@@ -1,97 +1,102 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
+import { useSafetyStockStore } from '@/store/safety'
+
+const safetyStockStore = useSafetyStockStore()
+onMounted(() => {
+  safetyStockStore.fetchSafetyStockData()
+})
 
 const route = useRoute()
 const toast = useToast()
 
 const open = ref(false)
 
-const links = [[{
-  label: 'Home',
-  icon: 'i-lucide-house',
-  to: '/kasir',
-  onSelect: () => {
-    open.value = false
-  }
-}, {
-  label: 'Safety Stok',
-  icon: 'i-lucide-boxes',
-  to: '/kasir/safety-stok',
-  badge: '4',
-  onSelect: () => {
-    open.value = false
-  }
-}, {
-  label: 'Transfer Stok',
-  icon: 'i-lucide-hand-coins',
-  to: '/kasir/transfer-stok',
-  onSelect: () => {
-    open.value = false
-  }
-}, {
+const links = computed<NavigationMenuItem[][]>(() => [[
+  {
+    label: 'Home',
+    icon: 'i-lucide-house',
+    to: '/kasir',
+    onSelect: () => { open.value = false }
+  },
+  {
+    label: 'Prediksi Penjualan',
+    icon: 'i-lucide-boxes',
+    to: '/kasir/prediksi-stok',
+    badge: safetyStockStore.totalSafetyItems || undefined,
+    onSelect: () => { open.value = false }
+  },
+  // {
+  //   label: 'Transfer Stock',
+  //   icon: 'i-lucide-hand-coins',
+  //   to: '/kasir/transfer-stock',
+  //   onSelect: () => { open.value = false }
+  // },
+  {
     label: 'Transaksi',
     to: '/kasir/transaksi',
     icon: 'i-lucide-shopping-cart',
     defaultOpen: true,
-    children: [{
-      label: 'Transaksi Baru',
-      to: '/kasir/transaksi',
-      exact: true,
-      onSelect: () => {
-        open.value = false
+    children: [
+      {
+        label: 'Transaksi Baru',
+        to: '/kasir/transaksi',
+        exact: true,
+        onSelect: () => { open.value = false }
+      },
+      {
+        label: 'Riwayat',
+        to: '/kasir/transaksi/riwayat',
+        onSelect: () => { open.value = false }
       }
-    }, {
-      label: 'Riwayat',
-      to: '/kasir/transaksi/riwayat',
-      onSelect: () => {
-        open.value = false
-      }
-  }]
-}, {
-  label: 'Pengiriman',
-  to: '/kasir/pengiriman',
-  icon: 'i-lucide-car-front',
-  defaultOpen: true,
-  type: 'trigger',
-  children: [{
-    label: 'Pengiriman Baru',
+    ]
+  },
+  {
+    label: 'Pengiriman',
     to: '/kasir/pengiriman',
-    exact: true,
-    onSelect: () => {
-      open.value = false
-    }
-  }, {
-    label: 'Riwayat',
-    to: '/kasir/pengiriman/riwayat',
-    onSelect: () => {
-      open.value = false
-    }
-  }]
-}, {
-  label: 'Kas',
-  to: '/kasir/kas',
-  icon: 'i-lucide-book-open',
-  defaultOpen: true,
-  children: [{
+    icon: 'i-lucide-car-front',
+    defaultOpen: true,
+    type: 'trigger',
+    children: [
+      {
+        label: 'Pengiriman Baru',
+        to: '/kasir/pengiriman',
+        exact: true,
+        onSelect: () => { open.value = false }
+      },
+      {
+        label: 'Riwayat',
+        to: '/kasir/pengiriman/riwayat',
+        onSelect: () => { open.value = false }
+      }
+    ]
+  },
+  {
     label: 'Kas',
     to: '/kasir/kas',
-    exact: true,
-    onSelect: () => {
-      open.value = false
-    }
-  }, {
-    label: 'Riwayat',
-    to: '/kasir/kas/riwayat',
-    onSelect: () => {
-      open.value = false
-    }
-  }]
-}]]
+    icon: 'i-lucide-book-open',
+    defaultOpen: true,
+    children: [
+      {
+        label: 'Kas',
+        to: '/kasir/kas',
+        exact: true,
+        onSelect: () => { open.value = false }
+      },
+      {
+        label: 'Riwayat',
+        to: '/kasir/kas/riwayat',
+        onSelect: () => { open.value = false }
+      }
+    ]
+  }
+]])
+
 
 const groups = computed(() => [{
   id: 'links',
   label: 'Go to',
-  items: links.flat()
+  items: links.value.flat()
 }, {
   id: 'code',
   label: 'Code',

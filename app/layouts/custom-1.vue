@@ -42,12 +42,26 @@ const links = [[{
     onSelect: () => {
       open.value = false
     }
-  }, {
-    label: 'Riwayat',
-    to: '/o-master/kelola-barang/riwayat',
-    onSelect: () => {
-      open.value = false
-    }
+  }]
+},
+{
+    label: 'Kelola Toko',
+    to: '/o-master/kelola-toko',
+    icon: 'i-lucide-store',
+    defaultOpen: true,
+    children: [{
+      label: 'Buat Toko',
+      to: '/o-master/kelola-toko',
+      exact: true,
+      onSelect: () => {
+        open.value = false
+      }
+    }, {
+      label: 'Riwayat',
+      to: '/o-master/kelola-toko/riwayat',
+      onSelect: () => {
+        open.value = false
+      }
   }]
 }]]
 

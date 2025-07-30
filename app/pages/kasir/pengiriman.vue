@@ -9,6 +9,13 @@ const links = [[{
   icon: 'i-lucide-clock',
   to: '/kasir/pengiriman/riwayat'
 }]]
+
+const items = [[{
+  label: 'New customer',
+  icon: 'i-lucide-user-plus',
+  to: '/kasir/customers'
+}]]
+
 </script>
 
 <template>
@@ -18,6 +25,11 @@ const links = [[{
         <template #leading>
           <UDashboardSidebarCollapse />
         </template>
+          <template #right>
+            <UDropdownMenu :items="items">
+              <UButton icon="i-lucide-plus" size="md" class="rounded-full" />
+            </UDropdownMenu>
+          </template>
       </UDashboardNavbar>
 
       <UDashboardToolbar>
