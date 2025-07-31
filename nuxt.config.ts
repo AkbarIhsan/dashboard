@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
-    '@nuxt/ui-pro',
     '@vueuse/nuxt',
     '@pinia/nuxt'
   ],
