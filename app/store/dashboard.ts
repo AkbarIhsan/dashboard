@@ -94,7 +94,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
     try {
       const token = useCookie('token')
 
-      const data = await $fetch<SalesOrderDetail[]>('http://127.0.0.1:8000/api/sales-order-detail', {
+      const data = await $fetch<SalesOrderDetail[]>('http://app.udpadijaya.com/api/sales-order-detail', {
         headers: {
           'Authorization': `Bearer ${token.value}`,
           'Content-Type': 'application/json'
@@ -115,7 +115,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
       const token = useCookie('token')
 
       // Ambil semua units
-      const allUnits = await $fetch<LowStockUnit[]>('http://127.0.0.1:8000/api/unit', {
+      const allUnits = await $fetch<LowStockUnit[]>('http://app.udpadijaya.com/api/unit', {
         headers: {
           'Authorization': `Bearer ${token.value}`,
           'Content-Type': 'application/json'

@@ -50,7 +50,7 @@ export const useSalesOrderStore = defineStore('salesOrder', () => {
     try {
       const token = useCookie('token')
 
-      const data = await $fetch<SalesOrder[]>('http://127.0.0.1:8000/api/sales-order', {
+      const data = await $fetch<SalesOrder[]>('http://app.udpadijaya.com/api/sales-order', {
         headers: {
           Accept: 'application/json',
           Authorization: `Bearer ${token.value}`,
@@ -81,7 +81,7 @@ export const useSalesOrderStore = defineStore('salesOrder', () => {
   const fetchLatestSalesOrderId = async (): Promise<number> => {
     const token = useCookie('token')
 
-    const latest = await $fetch<SalesOrder>('http://127.0.0.1:8000/api/sales-order/latest', {
+    const latest = await $fetch<SalesOrder>('http://app.udpadijaya.com/api/sales-order/latest', {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${token.value}`,

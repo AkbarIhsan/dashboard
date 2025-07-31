@@ -56,7 +56,7 @@ export const usePurchaseStore = defineStore('purchase', {
 
       try {
         const token = useCookie('token')
-        const { data, error } = await useFetch<Unit[]>('http://127.0.0.1:8000/api/unit', {
+        const { data, error } = await useFetch<Unit[]>('http://app.udpadijaya.com/api/unit', {
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ export const usePurchaseStore = defineStore('purchase', {
         const token = useCookie('token')
 
         // Step 1: Create purchase order
-        const purchaseOrderResponse = await fetch('http://127.0.0.1:8000/api/purchase-order', {
+        const purchaseOrderResponse = await fetch('http://app.udpadijaya.com/api/purchase-order', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -174,7 +174,7 @@ export const usePurchaseStore = defineStore('purchase', {
 
         // Step 2: Add all items to purchase order
         for (const item of this.purchaseItems) {
-          const response = await fetch('http://127.0.0.1:8000/api/purchase-order-detail', {
+          const response = await fetch('http://app.udpadijaya.com/api/purchase-order-detail', {
             method: 'POST',
             headers: {
               'Accept': 'application/json',
@@ -197,7 +197,7 @@ export const usePurchaseStore = defineStore('purchase', {
         }
 
         // Step 3: Complete purchase order (jika diperlukan)
-        const completeResponse = await fetch(`http://127.0.0.1:8000/api/purchase-order/complete`, {
+        const completeResponse = await fetch(`http://app.udpadijaya.com/api/purchase-order/complete`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -244,7 +244,7 @@ export const usePurchaseStore = defineStore('purchase', {
 
         // Langsung buat purchase order detail untuk setiap item
         for (const item of this.purchaseItems) {
-          const response = await fetch('http://127.0.0.1:8000/api/purchase-order-detail', {
+          const response = await fetch('http://app.udpadijaya.com/api/purchase-order-detail', {
             method: 'POST',
             headers: {
               'Accept': 'application/json',

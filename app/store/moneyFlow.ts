@@ -90,7 +90,7 @@ export const useMoneyFlowStore = defineStore('moneyFlow', {
 
       try {
         const token = useCookie('token')
-        const data = await $fetch<MoneyFlow[]>('http://127.0.0.1:8000/api/mny', {
+        const data = await $fetch<MoneyFlow[]>('http://app.udpadijaya.com/api/mny', {
           method: 'GET',
           headers: {
             Accept: 'application/json',
@@ -115,7 +115,7 @@ export const useMoneyFlowStore = defineStore('moneyFlow', {
 
       try {
         const token = useCookie('token')
-        const data = await $fetch<MoneyFlow>('http://127.0.0.1:8000/api/mny', {
+        const data = await $fetch<MoneyFlow>('http://app.udpadijaya.com/api/mny', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -144,7 +144,7 @@ export const useMoneyFlowStore = defineStore('moneyFlow', {
 
       try {
         const token = useCookie('token')
-        const data = await $fetch<MoneyFlow>(`http://127.0.0.1:8000/api/mny/${id}`, {
+        const data = await $fetch<MoneyFlow>(`http://app.udpadijaya.com/api/mny/${id}`, {
           method: 'PUT',
           headers: {
             Accept: 'application/json',
@@ -175,7 +175,7 @@ export const useMoneyFlowStore = defineStore('moneyFlow', {
       this.error = null
 
       try {
-        await $fetch(`http://127.0.0.1:8000/api/mny/${id}`, {
+        await $fetch(`http://app.udpadijaya.com/api/mny/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${useCookie('auth-token').value}`,

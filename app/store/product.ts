@@ -89,7 +89,7 @@ export const useProductStore = defineStore('product', {
       this.error = null
 
       try {
-        const { data, error } = await useFetch<Product[]>('http://127.0.0.1:8000/api/product', {
+        const { data, error } = await useFetch<Product[]>('http://app.udpadijaya.com/api/product', {
           headers: this.getAuthHeaders(),
           server: false
         })
@@ -112,7 +112,7 @@ export const useProductStore = defineStore('product', {
       this.error = null
 
       try {
-        const { data, error } = await useFetch<Product>('http://127.0.0.1:8000/api/product', {
+        const { data, error } = await useFetch<Product>('http://app.udpadijaya.com/api/product', {
           method: 'POST',
           headers: this.getAuthHeaders(),
           body: productData,
@@ -140,7 +140,7 @@ export const useProductStore = defineStore('product', {
       this.error = null
 
       try {
-        const { data, error } = await useFetch<Product>(`http://127.0.0.1:8000/api/product/${id}`, {
+        const { data, error } = await useFetch<Product>(`http://app.udpadijaya.com/api/product/${id}`, {
           method: 'PUT',
           headers: this.getAuthHeaders(),
           body: productData,
@@ -171,7 +171,7 @@ export const useProductStore = defineStore('product', {
       this.error = null
 
       try {
-        const { error } = await useFetch(`http://127.0.0.1:8000/api/product/${id}`, {
+        const { error } = await useFetch(`http://app.udpadijaya.com/api/product/${id}`, {
           method: 'DELETE',
           headers: this.getAuthHeaders(),
           server: false
@@ -196,7 +196,7 @@ export const useProductStore = defineStore('product', {
       this.error = null
 
       try {
-        const { data, error } = await useFetch<ProductType[]>('http://127.0.0.1:8000/api/product-types', {
+        const { data, error } = await useFetch<ProductType[]>('http://app.udpadijaya.com/api/product-types', {
           headers: this.getAuthHeaders(),
           server: false
         })
@@ -219,7 +219,7 @@ export const useProductStore = defineStore('product', {
       this.error = null
 
       try {
-        const { data, error } = await useFetch<ProductType>('http://127.0.0.1:8000/api/product-types', {
+        const { data, error } = await useFetch<ProductType>('http://app.udpadijaya.com/api/product-types', {
           method: 'POST',
           headers: this.getAuthHeaders(),
           body: productTypeData,
@@ -247,7 +247,7 @@ export const useProductStore = defineStore('product', {
       this.error = null
 
       try {
-        const { data, error } = await useFetch<{ data: ProductType }>(`http://127.0.0.1:8000/api/product-types/${id}`, {
+        const { data, error } = await useFetch<{ data: ProductType }>(`http://app.udpadijaya.com/api/product-types/${id}`, {
           method: 'PUT',
           headers: this.getAuthHeaders(),
           body: productTypeData,
@@ -278,7 +278,7 @@ export const useProductStore = defineStore('product', {
       this.error = null
 
       try {
-        const { error } = await useFetch(`http://127.0.0.1:8000/api/product-types/${id}`, {
+        const { error } = await useFetch(`http://app.udpadijaya.com/api/product-types/${id}`, {
           method: 'DELETE',
           headers: this.getAuthHeaders(),
           server: false
@@ -303,7 +303,7 @@ export const useProductStore = defineStore('product', {
       this.error = null
 
       try {
-        const { data, error } = await useFetch<Unit[]>('http://127.0.0.1:8000/api/unit', {
+        const { data, error } = await useFetch<Unit[]>('http://app.udpadijaya.com/api/unit', {
           headers: this.getAuthHeaders(),
           server: false
         })
@@ -334,7 +334,7 @@ export const useProductStore = defineStore('product', {
       this.error = null
 
       try {
-        const { data, error } = await useFetch<Unit>('http://127.0.0.1:8000/api/unit', {
+        const { data, error } = await useFetch<Unit>('http://app.udpadijaya.com/api/unit', {
           method: 'POST',
           headers: this.getAuthHeaders(),
           body: unitData,
@@ -370,7 +370,7 @@ export const useProductStore = defineStore('product', {
       this.error = null
 
       try {
-        const { data, error } = await useFetch<Unit>(`http://127.0.0.1:8000/api/unit/${id}`, {
+        const { data, error } = await useFetch<Unit>(`http://app.udpadijaya.com/api/unit/${id}`, {
           method: 'PUT',
           headers: this.getAuthHeaders(),
           body: unitData,
@@ -401,7 +401,7 @@ export const useProductStore = defineStore('product', {
       this.error = null
 
       try {
-        const { error } = await useFetch(`http://127.0.0.1:8000/api/unit/${id}`, {
+        const { error } = await useFetch(`http://app.udpadijaya.com/api/unit/${id}`, {
           method: 'DELETE',
           headers: this.getAuthHeaders(),
           server: false

@@ -59,7 +59,7 @@ export const useUserStore = defineStore('user', () => {
         throw new Error('No token found')
       }
 
-      const userData = await $fetch<User>('http://127.0.0.1:8000/api/me', {
+      const userData = await $fetch<User>('http://app.udpadijaya.com/api/me', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token.value}`,
@@ -88,7 +88,7 @@ export const useUserStore = defineStore('user', () => {
     const token = useCookie('token')
 
     try {
-      await $fetch('http://127.0.0.1:8000/api/logout', {
+      await $fetch('http://app.udpadijaya.com/api/logout', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token.value}`,

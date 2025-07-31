@@ -50,7 +50,7 @@ export const usepurchaseOrderStore = defineStore('purchaseOrder', () => {
     try {
       const token = useCookie('token')
 
-      const data = await $fetch<purchaseOrder[]>('http://127.0.0.1:8000/api/purchase-order', {
+      const data = await $fetch<purchaseOrder[]>('http://app.udpadijaya.com/api/purchase-order', {
         headers: {
           Accept: 'application/json',
           Authorization: `Bearer ${token.value}`,

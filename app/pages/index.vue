@@ -31,7 +31,7 @@ const handleLogin = async () => {
   isLoading.value = true
 
   try {
-    const res = await $fetch<LoginResponse>('http://127.0.0.1:8000/api/login', {
+    const res = await $fetch<LoginResponse>('http://app.udpadijaya.com/api/login', {
       method: 'POST',
       body: {
         username: username.value,

@@ -84,7 +84,7 @@ export const useDeliveryStore = defineStore('delivery', {
 
       try {
         const token = useCookie('token')
-        const response = await $fetch<Delivery[]>('http://127.0.0.1:8000/api/delivery',{
+        const response = await $fetch<Delivery[]>('http://app.udpadijaya.com/api/delivery',{
         // method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ export const useDeliveryStore = defineStore('delivery', {
 
       try {
         const token = useCookie('token')
-        const response = await $fetch<Customer[]>('http://127.0.0.1:8000/api/customer',{
+        const response = await $fetch<Customer[]>('http://app.udpadijaya.com/api/customer',{
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -136,7 +136,7 @@ export const useDeliveryStore = defineStore('delivery', {
 
       try {
         const token = useCookie('token')
-        const response = await $fetch<SalesOrder[]>('http://127.0.0.1:8000/api/sales-order',{
+        const response = await $fetch<SalesOrder[]>('http://app.udpadijaya.com/api/sales-order',{
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -158,7 +158,7 @@ export const useDeliveryStore = defineStore('delivery', {
 
       try {
         const token = useCookie('token')
-        const response = await $fetch<Delivery>('http://127.0.0.1:8000/api/delivery', {
+        const response = await $fetch<Delivery>('http://app.udpadijaya.com/api/delivery', {
           method: 'POST',
           headers: {
           'Content-Type': 'application/json',
@@ -185,7 +185,7 @@ export const useDeliveryStore = defineStore('delivery', {
 
       try {
         const token = useCookie('token')
-        const response = await $fetch<Delivery>(`http://127.0.0.1:8000/api/delivery/${id}`, {
+        const response = await $fetch<Delivery>(`http://app.udpadijaya.com/api/delivery/${id}`, {
           method: 'PUT',
           headers: {
           'Content-Type': 'application/json',

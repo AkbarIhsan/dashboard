@@ -13,7 +13,7 @@ export const useBranchStore = defineStore('branch', () => {
     loading.value = true
     try {
       const token = useCookie('token')
-      const response = await $fetch<{message: string, data: Branch[]}>('http://127.0.0.1:8000/api/branch', {
+      const response = await $fetch<{message: string, data: Branch[]}>('http://app.udpadijaya.com/api/branch', {
         headers: {
           Accept: 'application/json',
           Authorization: `Bearer ${token.value}`,
@@ -30,7 +30,7 @@ export const useBranchStore = defineStore('branch', () => {
 
   const createBranch = async (branchData: Omit<Branch, 'id'>) => {
     const token = useCookie('token')
-    const response = await $fetch<{message: string, data: Branch}>('http://127.0.0.1:8000/api/branch', {
+    const response = await $fetch<{message: string, data: Branch}>('http://app.udpadijaya.com/api/branch', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ export const useBranchStore = defineStore('branch', () => {
 
   const updateBranch = async (id: number, branchData: Omit<Branch, 'id'>) => {
     const token = useCookie('token')
-    const response = await $fetch<{message: string, data: Branch}>(`http://127.0.0.1:8000/api/branch/${id}`, {
+    const response = await $fetch<{message: string, data: Branch}>(`http://app.udpadijaya.com/api/branch/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export const useBranchStore = defineStore('branch', () => {
   const deleteBranch = async (id: number) => {
     const token = useCookie('token')
 
-    await $fetch(`http://127.0.0.1:8000/api/branch/${id}`, {
+    await $fetch(`http://app.udpadijaya.com/api/branch/${id}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',

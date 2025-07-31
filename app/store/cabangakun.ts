@@ -68,7 +68,7 @@ export const useOwnerCabangStore = defineStore('ownerCabang', {
       try {
         const token = useCookie('token')
 
-        const response = await $fetch<UserResponse>('http://127.0.0.1:8000/api/user', {
+        const response = await $fetch<UserResponse>('http://app.udpadijaya.com/api/user', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token.value}`,
@@ -108,7 +108,7 @@ export const useOwnerCabangStore = defineStore('ownerCabang', {
       try {
         const token = useCookie('token')
 
-        const response = await $fetch<BranchResponse>('http://127.0.0.1:8000/api/branch', {
+        const response = await $fetch<BranchResponse>('http://app.udpadijaya.com/api/branch', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token.value}`,
@@ -148,7 +148,7 @@ export const useOwnerCabangStore = defineStore('ownerCabang', {
           id_role: 2, // Role owner cabang (sesuaikan dengan database Anda)
         }
 
-        const response = await $fetch<RegisterResponse>('http://127.0.0.1:8000/api/register', {
+        const response = await $fetch<RegisterResponse>('http://app.udpadijaya.com/api/register', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token.value}`,

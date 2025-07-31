@@ -13,7 +13,7 @@ export const useCustomerStore = defineStore('customer', () => {
     loading.value = true
     try {
       const token = useCookie('token')
-      const data  = await $fetch<Customer[]>('http://127.0.0.1:8000/api/customer', {
+      const data  = await $fetch<Customer[]>('http://app.udpadijaya.com/api/customer', {
         headers: {
           Accept: 'application/json',
           Authorization: `Bearer ${token.value}`,
@@ -31,7 +31,7 @@ export const useCustomerStore = defineStore('customer', () => {
   // In your customer store
   const createCustomer = async (customerData: Omit<Customer, 'id'>) => {
     const token = useCookie('token')
-    const newCustomer = await $fetch<Customer>('http://127.0.0.1:8000/api/customer', {
+    const newCustomer = await $fetch<Customer>('http://app.udpadijaya.com/api/customer', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export const useCustomerStore = defineStore('customer', () => {
 const deleteCustomer = async (id: number) => {
   const token = useCookie('token')
 
-  await $fetch(`http://127.0.0.1:8000/api/customer/${id}`, {
+  await $fetch(`http://app.udpadijaya.com/api/customer/${id}`, {
     method: 'DELETE',
     headers: {
       'Accept': 'application/json',

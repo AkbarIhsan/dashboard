@@ -47,7 +47,7 @@ export const useSafetyStockStore = defineStore('safetyStock', () => {
     error.value = null
 
     try {
-      const response = await $fetch<SafetyStockResponse>('http://127.0.0.1:8000/api/safety-stock', {
+      const response = await $fetch<SafetyStockResponse>('http://app.udpadijaya.com/api/safety-stock', {
         headers: {
           Authorization: `Bearer ${token.value}`
         }

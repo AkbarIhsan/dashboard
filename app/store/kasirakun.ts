@@ -52,7 +52,7 @@ export const useKasirAkunStore = defineStore('kasirAkun', {
       try {
         const token = useCookie('token')
 
-        const response = await $fetch<UserResponse>('http://127.0.0.1:8000/api/user', {
+        const response = await $fetch<UserResponse>('http://app.udpadijaya.com/api/user', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token.value}`,
@@ -103,7 +103,7 @@ export const useKasirAkunStore = defineStore('kasirAkun', {
           id_branch: this.currentUser?.branch?.id || 1 // Ambil dari user yang sedang login
         }
 
-        const response = await $fetch<RegisterResponse>('http://127.0.0.1:8000/api/register', {
+        const response = await $fetch<RegisterResponse>('http://app.udpadijaya.com/api/register', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token.value}`,

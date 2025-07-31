@@ -93,7 +93,7 @@ export const useTransferStockStore = defineStore('transferStock', {
     async fetchBranches(): Promise<void> {
       try {
         const token = useCookie('token')
-        const { data, error } = await useFetch<{ message: string; data: Branch[] }>('http://127.0.0.1:8000/api/branch', {
+        const { data, error } = await useFetch<{ message: string; data: Branch[] }>('http://app.udpadijaya.com/api/branch', {
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ export const useTransferStockStore = defineStore('transferStock', {
     async fetchUnits(): Promise<void> {
       try {
         const token = useCookie('token')
-        const { data, error } = await useFetch<Unit[]>('http://127.0.0.1:8000/api/unit', {
+        const { data, error } = await useFetch<Unit[]>('http://app.udpadijaya.com/api/unit', {
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -148,7 +148,7 @@ async fetchTransferStocks(): Promise<void> {
         my_requests: TransferStock[]
         incoming_requests: TransferStock[]
       }
-    }>('http://127.0.0.1:8000/api/transfer-stock', {
+    }>('http://app.udpadijaya.com/api/transfer-stock', {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -181,7 +181,7 @@ async fetchTransferStocks(): Promise<void> {
       try {
         const token = useCookie('token')
 
-        const response = await fetch('http://127.0.0.1:8000/api/transfer-stock', {
+        const response = await fetch('http://app.udpadijaya.com/api/transfer-stock', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -217,7 +217,7 @@ async fetchTransferStocks(): Promise<void> {
       try {
         const token = useCookie('token')
 
-        const response = await fetch(`http://127.0.0.1:8000/api/transfer-stock/${id}`, {
+        const response = await fetch(`http://app.udpadijaya.com/api/transfer-stock/${id}`, {
           method: 'PUT',
           headers: {
             'Accept': 'application/json',
@@ -253,7 +253,7 @@ async fetchTransferStocks(): Promise<void> {
       try {
         const token = useCookie('token')
 
-        const response = await fetch(`http://127.0.0.1:8000/api/transfer-stock/${id}`, {
+        const response = await fetch(`http://app.udpadijaya.com/api/transfer-stock/${id}`, {
           method: 'DELETE',
           headers: {
             'Accept': 'application/json',
@@ -288,7 +288,7 @@ async fetchTransferStocks(): Promise<void> {
       try {
         const token = useCookie('token')
 
-        const response = await fetch(`http://127.0.0.1:8000/api/transfer-stock/${id}`, {
+        const response = await fetch(`http://app.udpadijaya.com/api/transfer-stock/${id}`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',

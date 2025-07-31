@@ -57,7 +57,7 @@ export const useTransactionStore = defineStore('transaction', {
       try {
         const token = useCookie('token')
         // Opsi 1: Menggunakan useFetch (untuk Nuxt)
-        const { data, error } = await useFetch<Unit[]>('http://127.0.0.1:8000/api/unit', {
+        const { data, error } = await useFetch<Unit[]>('http://app.udpadijaya.com/api/unit', {
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ export const useTransactionStore = defineStore('transaction', {
       this.error = null
 
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/unit', {
+        const response = await fetch('http://app.udpadijaya.com/api/unit', {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
@@ -175,7 +175,7 @@ async processPayment(): Promise<{ success: boolean; message: string }> {
     const token = useCookie('token')
 
     for (const item of this.cart) {
-      const response = await fetch('http://127.0.0.1:8000/api/sales-order-detail', {
+      const response = await fetch('http://app.udpadijaya.com/api/sales-order-detail', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -195,7 +195,7 @@ async processPayment(): Promise<{ success: boolean; message: string }> {
     }
 
     // ✅ Kirim permintaan untuk menyelesaikan transaksi
-    const completeResponse = await fetch('http://127.0.0.1:8000/api/sales-order/complete', {
+    const completeResponse = await fetch('http://app.udpadijaya.com/api/sales-order/complete', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

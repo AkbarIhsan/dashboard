@@ -37,7 +37,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     const token = useCookie('token')
 
     // Create customer via API
-    const newCustomer = await $fetch<any>('http://127.0.0.1:8000/api/customer', {
+    const newCustomer = await $fetch<any>('http://app.udpadijaya.com/api/customer', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
