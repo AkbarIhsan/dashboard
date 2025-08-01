@@ -7,7 +7,7 @@
     "dev": "NUXT_UI_PRO_LICENSE=dummy nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "start": "NUXT_UI_PRO_LICENSE=dummy nuxt dev",
+    "start": "NUXT_UI_PRO_LICENSE=dummy nuxt dev --port=3003 --host=0.0.0.0",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "typecheck": "nuxt typecheck"
