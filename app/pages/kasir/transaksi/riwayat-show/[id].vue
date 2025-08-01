@@ -63,7 +63,7 @@ const fetchSalesOrderDetail = async () => {
     const token = useCookie('token')
 
     // Fetch sales order detail by ID
-    const detailData = await $fetch<SalesOrderResponse>(`http://127.0.0.1:8000/api/sales-order/${salesOrderId.value}`, {
+    const detailData = await $fetch<SalesOrderResponse>(`http://app.udpadijaya.com/api/sales-order/${salesOrderId.value}`, {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${token.value}`,

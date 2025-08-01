@@ -4,9 +4,10 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "NUXT_UI_PRO_LICENSE=dummy nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "start": "NUXT_UI_PRO_LICENSE=dummy nuxt dev",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "typecheck": "nuxt typecheck"
